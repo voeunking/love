@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Login 💕</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #ffd1e8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated Hearts Background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(214, 51, 132, 0.3);
+            font-size: 20px;
+            animation: floatHeart 6s ease-in-out infinite;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(214, 51, 132, 0.3);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d63384;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .login-subtitle {
+            color: #c7366f;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            color: #d63384;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ffe0f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #d63384;
+            box-shadow: 0 0 15px rgba(214, 51, 132, 0.2);
+            transform: scale(1.02);
+        }
+
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #d63384, #c7366f);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            background: rgba(255, 0, 0, 0.1);
+            color: #d63384;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .hint {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #c7366f;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .hint-text {
+            color: #d63384;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .hint-text:hover {
+            color: #c7366f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .login-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1 class="login-title">Welcome Love 💕</h1>
+            <p class="login-subtitle">Enter your credentials to continue</p>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            Incorrect username or password. Try again! 💔
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label class="form-label" for="username">Username</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    class="form-input" 
+                    placeholder="Enter your username"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="form-input" 
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="login-btn">
+                Enter Our World 💕
+            </button>
+        </form>
+
+        <div class="hint">
+            <p>Need a hint? 💭</p>
+            <p class="hint-text" id="hintBtn">Click this for get username and password</p>
+            <p id="hintText" style="display: none; margin-top: 0.5rem;">
+                Username: <strong>pov-meas</strong><br>
+                Password: <strong>love-u</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Animated Hearts
+        function createHeart() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 8000);
+        }
+
+        // Create initial hearts
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+
+        // Continue creating hearts
+        setInterval(createHeart, 3000);
+
+        // Login Form Handler
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const hintBtn = document.getElementById('hintBtn');
+        const hintText = document.getElementById('hintText');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Check credentials
+            if (username === 'pov-meas' && password === 'love-u') {
+                // Success - show celebration animation first
+                showCelebrationAnimation();
+                
+                // Redirect to main website after animation
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            } else {
+                // Show error message
+                errorMessage.style.display = 'block';
+                
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+                
+                // Clear form
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('username').focus();
+            }
+        });
+
+        // Hint functionality
+        hintBtn.addEventListener('click', function() {
+            if (hintText.style.display === 'none') {
+                hintText.style.display = 'block';
+                this.textContent = 'Hide hint';
+            } else {
+                hintText.style.display = 'none';
+                this.textContent = 'Click for a gentle reminder';
+            }
+        });
+
+        // Add some romance to input fields
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                createHeart();
+            });
+        });
+
+        // Celebration Animation Function
+        function showCelebrationAnimation() {
+            // Hide the login form
+            document.querySelector('.login-container').style.display = 'none';
+            
+            // Create celebration message
+            const celebrationDiv = document.createElement('div');
+            celebrationDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                z-index: 1000;
+                animation: fadeInScale 1s ease-out;
+            `;
+            
+            celebrationDiv.innerHTML = `
+                <h1 style="font-family: 'Dancing Script', cursive; font-size: 4rem; color: #d63384; margin-bottom: 1rem;">
+                    🎉 Welcome My Love! 🎉
+                </h1>
+                <p style="font-size: 1.5rem; color: #c7366f; margin-bottom: 2rem;">
+                    Entering our romantic world... 💕
+                </p>
+                <div style="font-size: 2rem;">🌹💖🌸💝🌺</div>
+            `;
+            
+            document.body.appendChild(celebrationDiv);
+            
+            // Create explosion of hearts and flowers
+            createCelebrationExplosion();
+            
+            // Continue creating celebration elements
+            const celebrationInterval = setInterval(() => {
+                createCelebrationElement();
+            }, 100);
+            
+            // Stop after 2.5 seconds
+            setTimeout(() => {
+                clearInterval(celebrationInterval);
+            }, 2500);
+        }
+
+        function createCelebrationExplosion() {
+            const elements = ['❤️', '🌹', '🌸', '💖', '💝', '🌺', '💕', '✨', '🎊', '🎉'];
+            const colors = ['#d63384', '#c7366f', '#ff69b4', '#ffb6c1', '#ffc0cb', '#ff1493'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const element = document.createElement('div');
+                    element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                    element.style.cssText = `
+                        position: fixed;
+                        font-size: ${Math.random() * 30 + 20}px;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 999;
+                        pointer-events: none;
+                        color: ${colors[Math.floor(Math.random() * colors.length)]};
+                    `;
+                    
+                    document.body.appendChild(element);
+                    
+                    // Animate explosion outward
+                    const angle = (Math.PI * 2 * i) / 50;
+                    const velocity = Math.random() * 300 + 200;
+                    const endX = Math.cos(angle) * velocity;
+                    const endY = Math.sin(angle) * velocity;
+                    
+                    element.animate([
+                        { 
+                            transform: 'translate(-50%, -50%) scale(0) rotate(0deg)',
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translate(calc(-50% + ${endX}px), calc(-50% + ${endY}px)) scale(1.5) rotate(${Math.random() * 720}deg)`,
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: 2000,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+                    
+                    // Remove element after animation
+                    setTimeout(() => {
+                        if (element.parentNode) {
+                            element.parentNode.removeChild(element);
+                        }
+                    }, 2000);
+                }, i * 30);
+            }
+        }
+
+        function createCelebrationElement() {
+            const elements = ['❤️', '🌹', '🌸', '💖', '💝', '🌺', '💕', '✨'];
+            const colors = ['#d63384', '#c7366f', '#ff69b4', '#ffb6c1', '#ffc0cb'];
+            
+            const element = document.createElement('div');
+            element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+            element.style.cssText = `
+                position: fixed;
+                font-size: ${Math.random() * 25 + 15}px;
+                left: ${Math.random() * 100}%;
+                top: -50px;
+                z-index: 998;
+                pointer-events: none;
+                color: ${colors[Math.floor(Math.random() * colors.length)]};
+            `;
+            
+            document.body.appendChild(element);
+            
+            // Animate falling element
+            const duration = Math.random() * 3 + 2;
+            const horizontalMovement = (Math.random() - 0.5) * 100;
+            
+            element.animate([
+                { 
+                    transform: 'translateY(0) translateX(0) rotate(0deg)',
+                    opacity: 1 
+                },
+                { 
+                    transform: `translateY(100vh) translateX(${horizontalMovement}px) rotate(${Math.random() * 360}deg)`,
+                    opacity: 0 
+                }
+            ], {
+                duration: duration * 1000,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+            });
+            
+            // Remove element after animation
+            setTimeout(() => {
+                if (element.parentNode) {
+                    element.parentNode.removeChild(element);
+                }
+            }, duration * 1000);
+        }
+
+        // Add CSS animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInScale {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.5);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
