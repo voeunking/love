@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love 💕</title>
+    
+    <!-- Google Fonts for handwritten style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background Hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Music Controls -->
+    <div class="music-controls">
+        <button id="musicToggle" class="music-btn">🎵 Play Music</button>
+        <audio id="backgroundMusic" loop>
+            <source src="./New West - Those Eyes (Chapter 1).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <!-- Header Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="birthday-title">Happy Birthday My Love 💕</h1>
+            <p class="birthday-subtitle">To the most amazing person in my life</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <h2>Countdown to Your Special Day</h2>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Beautiful Memories</h2>
+            <p class="section-subtitle">Click on any photo to see a special message 💝</p>
+            
+            <div class="photo-gallery" style="display: grid;grid-template-columns: repeat(3,1fr);">
+                <div class="photo-item" data-message="The day we met - my life changed forever ❤️">
+                    <img src="./img/image.png" alt="Memory 1">
+                    <div class="photo-message"></div>
+                </div>
+                <div class="photo-item" data-message="Every moment with you is precious 💎">
+                    <img src="./img/image copy 2.png" alt="Memory 2">
+                    <div class="photo-message"></div>
+                </div>
+                <div class="photo-item" data-message="Your smile lights up my world ✨">
+                    <img src="https://picsum.photos/seed/love3/300/300.jpg" alt="Memory 3">
+                    <div class="photo-message"></div>
+                </div>
+                <div class="photo-item" data-message="Together we create magic 🌟">
+                    <img src="./img/image copy 3.png" alt="Memory 4">
+                    <div class="photo-message"></div>
+                </div>
+                <div class="photo-item" data-message="Love at first sight, every day 🌹">
+                    <img src="./img/image copy.png" alt="Memory 5">
+                    <div class="photo-message"></div>
+                </div>
+                <div class="photo-item" data-message="You make my heart skip a beat 💓">
+                    <img src="https://picsum.photos/seed/love6/300/300.jpg" alt="Memory 6">
+                    <div class="photo-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Story Timeline Section -->
+    <section class="story-section">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">The journey of our love 💕</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">January 15, 2023</div>
+                    <div class="timeline-content">
+                        <h3>The Day We Met</h3>
+                        <p>The moment our eyes first met, I knew you were someone special. That coffee shop changed my life forever.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">February 14, 2023</div>
+                    <div class="timeline-content">
+                        <h3>Our First Valentine's</h3>
+                        <p>The most romantic dinner, the perfect gift, and the beginning of knowing you were the one.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">June 20, 2023</div>
+                    <div class="timeline-content">
+                        <h3>Summer Adventures</h3>
+                        <p>Beach trips, late night talks, and creating memories that would last a lifetime.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">December 25, 2023</div>
+                    <div class="timeline-content">
+                        <h3>Christmas Magic</h3>
+                        <p>The most magical holiday season with you by my side, making everything brighter.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Today</div>
+                    <div class="timeline-content">
+                        <h3>Still Falling For You</h3>
+                        <p>Every day with you is better than the last. I love you more than words can express.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Love Letter Section -->
+    <section class="letter-section">
+        <div class="container">
+            <h2 class="section-title">A Letter From My Heart</h2>
+            
+            <div class="letter-container">
+                <div class="letter-content">
+                    <p>My Dearest Love,</p>
+                    <p>On this special day, I want to tell you how much you mean to me. From the moment I met you, my world became brighter, more colorful, and full of endless possibilities.</p>
+                    <p>Your smile is my favorite sight, your laugh is my favorite sound, and your heart is my favorite home. You've taught me what true love means, shown me patience I never knew I had, and given me a reason to be better every single day.</p>
+                    <p>I love the way you care for others, the passion you have for your dreams, and the kindness you show to everyone around you. You're not just my girlfriend - you're my best friend, my confidant, my partner in crime, and my soulmate.</p>
+                    <p>As we celebrate your birthday, I want you to know that my love for you grows stronger with each passing day. I promise to always be there for you, to support your dreams, to hold your hand through every challenge, and to celebrate every victory with you.</p>
+                    <p>Happy Birthday to the love of my life. May this year bring you all the joy, success, and happiness you deserve.</p>
+                    <p>Forever yours,</p>
+                    <p class="signature">With all my love 💕</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Surprise Section -->
+    <section class="surprise-section">
+        <div class="container">
+            <h2 class="section-title">A Special Surprise</h2>
+            <p class="section-subtitle">Click the button below for your birthday surprise! 🎉</p>
+            
+            <button id="surpriseBtn" class="surprise-button">Click for Your Surprise!</button>
+            
+            <div id="surpriseContent" class="surprise-content hidden">
+                <div class="surprise-inner">
+                    <h3>🎊 Happy Birthday! 🎊</h3>
+                    <div class="surprise-message">
+                        <p>You deserve all the happiness in the world!</p>
+                        <p>I've planned something special for us...</p>
+                        <div class="special-offer">
+                            <h4>🌹 Romantic Dinner Reservation</h4>
+                            <p>At your favorite restaurant - 7 PM tonight</p>
+                        </div>
+                        <div class="special-offer">
+                            <h4>💝 Weekend Getaway</h4>
+                            <p>Just the two of us, next weekend</p>
+                        </div>
+                        <div class="special-offer">
+                            <h4>🎁 Your Dream Gift</h4>
+                            <p>Something you've been wanting for months...</p>
+                        </div>
+                        <p class="final-message">I love you more than words can say. Happy Birthday, my everything! 💕</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Made with ❤️ for the most amazing person in the world</p>
+            <p>Happy Birthday My Love! 🎂💕</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
